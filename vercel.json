@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "gini/wsgi.py",
+        "src": "mycars/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
       }
@@ -14,7 +14,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "gini/wsgi.py"
+        "dest": "mycars/wsgi.py"
       }
     ]
   }
