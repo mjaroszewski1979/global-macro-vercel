@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load socialaccount %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+        <div id="main">
+
+				<!-- Main -->
+                        <div class="login">
+								<section>
+									<h2>Login form</h2>
+									<form method="POST" action="{% url 'login' %}" autocomplete="off">
+										{% csrf_token %}
+										<div class="fields">
+											{% for field in form %}
+											<div class="field half">
+												{{ field.errors }}
+												{% render_field field class="field half" placeholder=field.name %}
+											</div>
+											{% endfor %}
+                
+										</div>
+	
+										<ul class="actions">
+											<li><input type="submit" value="Login" class="primary" /></li>
+											<li><button><a href="{% provider_login_url 'google' %}" role="button" aria-pressed="true">Sign in with Google</a></button></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+						</div>
+        </div>
+{% endblock content %}

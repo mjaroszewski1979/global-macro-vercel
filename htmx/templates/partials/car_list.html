@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Cars List{% endblock title %}
+{% block content %}
+<div class="car-list-main">
+    <h3>MY CARS</h3>
+    <form hx-post="{% url 'add_car' %}" hx-target='#car-list'>
+        <input type="text" name="car_producer" class="add-car-input" placeholder="ENTER CAR NAME" />
+        <button type="submit" class="car-list-button">Add Car</button>
+    </form>
+</div>
+<hr class="car-list-hr"/>
+
+<div class="d-flex justify-content-between">
+
+    <section class="col-6">
+    
+        {% if messages %}
+        <ul class="messages" hx-get="{% url 'clear' %}" hx-trigger="load delay:3s">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
+        {% if cars %}
+        
+            {% csrf_token %}
+            <form class="sortable list-group" hx-trigger="end" hx-post="{% url 'sort' %}" hx-target="#car-list">
+                <div class="htmx-indicator">Updating...</div>
+                {% include 'partials/car_list_elements.html' %}
+            </form>
+        {% else %}
+            <p>YOU DO NOT HAVE CARS YET...</p>
+        {% endif %}
+    
+    </section>
+    
+    <section class="col-4 offset-1">
+        {% include 'partials/search.html' %}
+    </section>
+    </div>
+    
+    {% if request.method == 'POST' %}
+    <input type="text"
+        hx-swap-oob="true"
+        id="carname-input"
+        name="car_name" 
+        class="form-control-sm mr-2" 
+        placeholder="Enter a car" />
+    {% endif %}
+{% endblock content %}

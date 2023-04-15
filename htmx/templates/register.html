@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Register{% endblock title %}
+{% block content %}
+        <div id="main">
+
+				<!-- Main -->
+                        <div class="register">
+								<section>
+									<h2>Registration form</h2>
+									<form method="POST" action="{% url 'register' %}" autocomplete='off'>
+										{% csrf_token %}
+										<div class="fields">
+											<div class="field half">
+												{{ form.username.errors }}
+												{% render_field form.username hx-post="/check-username/" hx-target="#username-err" hx-trigger="keyup" placeholder='USERNAME' %}
+												<div class="text-danger mt-2" id="username-err"></div>
+											</div>
+											<div class="field half">
+												{{ form.password1.errors }}
+												{% render_field form.password1 placeholder='PASSWORD' %}
+											</div>
+											<div class="field half">
+												{{ form.password2.errors }}
+												{% render_field form.password2 placeholder='CONFIRM PASSWORD' %}
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Register" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+						</div>
+        </div>
+{% endblock content %}

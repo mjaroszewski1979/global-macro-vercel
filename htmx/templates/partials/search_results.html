@@ -1,0 +1,18 @@
+{% if results %}
+
+    {% csrf_token %}
+    <ul class="search-results-ul">
+    {% for car in results %}
+        <li class="search-results-li">
+            {{ car.producer|upper }}|
+            <span class="search-results-span" 
+                style="cursor: pointer;"
+                hx-post="{% url 'add_car' %}"
+                hx-vals='{"car_producer": "{{car.producer}}"}'
+                hx-target="#car-list">ADD</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>NO RESULTS</p>
+{% endif %}

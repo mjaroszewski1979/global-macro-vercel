@@ -1,0 +1,12 @@
+<div class="search-element">
+    {% csrf_token %}
+    <input type="text"
+        hx-post="{% url 'search_car' %}" 
+        hx-target='#results'
+        hx-trigger="keyup changed delay:500ms"
+        name="search"
+        placeholder="SEARCH CARS"
+        class="search-input" />
+    </form>
+</div>
+<div id="results"></div>
