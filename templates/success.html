@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Scraper - Success
+{% endblock %}
+{% block content %}
+<div class="results">
+    <table>
+        <tr>
+          <th>Website</th>
+          <th>Keyword</th>
+        </tr>
+        <tr>
+          <td class="website">{{ website }}</td>
+          <td>{{ keyword }}</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+          <th>Stats</th>
+        </tr>
+        <tr>
+            {% for stat in new_stat %}
+          <td>{{ stat }}</td>
+          {% endfor %}
+        </tr>
+    </table>
+    {% if data == True %}
+    <table>
+        <tr>
+          <th>Csv file</th>
+        </tr>
+        <tr>
+          <td><a href="{% url 'csv_view' %}"><i class="fas fa-file-download"></i></a></td>
+        </tr>
+    </table>
+    {% endif %}
+    <table>
+          <th>Links</th>
+            {% for link in new_link %}
+          <tr class="links-data">
+              <td>
+                {{ link }}
+              </td>
+          </tr>
+          {% endfor %}
+    </table>
+</div>
+{% endblock %}
+

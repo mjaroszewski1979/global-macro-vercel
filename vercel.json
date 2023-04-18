@@ -2,9 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "gini/wsgi.py",
+        "src": "scraper/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "100mb", "runtime": "python3.8" }
+        "config": { "maxLambdaSize": "50mb", "runtime": "python3.8" }
       }
     ],
     "routes": [
@@ -14,7 +14,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "gini/wsgi.py"
+        "dest": "scraper/wsgi.py"
       }
     ]
   }
