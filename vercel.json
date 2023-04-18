@@ -2,9 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "geo_api/wsgi.py",
+        "src": "gini/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "50mb", "runtime": "python3.8" }
+        "config": { "maxLambdaSize": "100mb", "runtime": "python3.8" }
       }
     ],
     "routes": [
@@ -14,7 +14,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "geo_api/wsgi.py"
+        "dest": "gini/wsgi.py"
       }
     ]
   }
