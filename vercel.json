@@ -2,9 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "mycars/wsgi.py",
+        "src": "geo_api/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
+        "config": { "maxLambdaSize": "50mb", "runtime": "python3.8" }
       }
     ],
     "routes": [
@@ -14,7 +14,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "mycars/wsgi.py"
+        "dest": "geo_api/wsgi.py"
       }
     ]
   }
