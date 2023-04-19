@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 5em;
+}
+
+
+form {
+      width: 25em;
+      height: 15em;
+      background: var(--clr-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10%;
+      border-top: 1px solid  rgb(126, 125, 125);
+      border-left: 1px solid  rgb(126, 125, 125);
+      -webkit-box-shadow: 0px 10px 20px -2px rgba(0,0,0,0.88); 
+      box-shadow: 0px 10px 20px -2px rgba(0,0,0,0.88);
+}
+
+.submit {
+    margin: 1em;
+    cursor: pointer;
+    border: 0;
+    background: var(--clr-secondary);
+    border-radius: 100vw;
+    color: var(--clr-light);
+    padding: .5em 1em;
+    -webkit-box-shadow: 0px 10px 20px -2px rgba(0,0,0,0.88); 
+    box-shadow: 0px 10px 20px -2px rgba(0,0,0,0.88);
+    font-family: var(--fnt-secondary);
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: .2em;
+    text-align: center;
+}
+
+.submit:hover {
+    background: rgba(20, 170, 170, 0.467);
+}
+
+form input[type='date'] {
+    outline-style: none;
+    background: transparent;
+    text-align: center;
+}
+
+

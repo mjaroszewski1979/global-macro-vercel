@@ -1,0 +1,51 @@
+{% macro menu(fronts, ranks, names, contents_1, contents_2, contents_3, stats_1, stats_2) %}
+
+
+  
+    <div class="menu">
+            <div class="rank">{{ ranks }}</div>
+        
+        <div class="front">
+            <img src="{{ url_for('static', filename = 'images/'+fronts ) }}" alt="">
+            
+            <h3 class="name">{{ names }}</h3>
+       
+            <div class="stats">
+                <p class="info">Info</p>
+                <div class="contents">
+                    <img src="{{ url_for('static', filename = 'images/'+contents_1 ) }}" alt="">
+                    <img src="{{ url_for('static', filename = 'images/'+contents_2 ) }}" alt="">
+                    <img src="{{ url_for('static', filename = 'images/'+contents_3 ) }}" alt="">
+                </div>
+            </div>
+        </div>
+       
+        <div class="back">
+            <div class="pricing-info">
+                <p class="menu-stat">{{ stats_1 }}<span>Regular</span></p>
+                <p class="menu-stat">{{ stats_2 }}<span>Premium</span></p>
+            </div>
+            <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
+            <div class="contents">
+                <div class="set">
+                    <p class="name">Set 1</p>
+                </div>
+                <div class="set">
+                    <p class="name">Set 2</p>
+                </div>
+                <div class="set">
+                    <p class="name">Set 3</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="background"></div>
+        
+        <div class="back"></div>
+    </div>
+   
+ 
+
+    
+
+{% endmacro %}

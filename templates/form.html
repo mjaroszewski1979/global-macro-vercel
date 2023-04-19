@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+    {% block stylesheet %}<link rel="stylesheet" href="../static/form.css">{% endblock %}
+
+    {% block title %}Book{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <form action="" method='POST' name="myform">
+            {{ form.csrt_token }}
+            <div class="date">
+                {{ form.book_date.label }} {{form.book_date(class='date_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="guests">
+                {{ form.guests.label }} {{form.guests(class='guests_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="email">
+                {{ form.email.label }} {{form.email(class='email_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="submit">
+                {{form.submit(class='submit_field')}} 
+            </div>
+        </form>
+        <h2 class="error">{{ error }}</h2>
+        {% if form.errors %}
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <h2 class="error">{{ error }}</h2>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
