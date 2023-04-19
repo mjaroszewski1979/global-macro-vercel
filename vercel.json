@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "cross/wsgi.py",
+        "src": "interiorshop/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "50mb", "runtime": "python3.8" }
       }
@@ -14,7 +14,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "cross/wsgi.py"
+        "dest": "interiorshop/wsgi.py"
       }
     ]
   }
