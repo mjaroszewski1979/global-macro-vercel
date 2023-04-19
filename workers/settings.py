@@ -82,13 +82,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'postgres',
+        'NAME': os.environ.get('NAME'),
 
-        'USER': 'postgres',
+        'USER': os.environ.get('USER'),
 
-        'PASSWORD': 'postgres',
+        'PASSWORD': os.environ.get('PASSWORD'),
 
-        'HOST': 'pgdb',
+        'HOST': 'abul.db.elephantsql.com',
 
         'PORT': '5432',
 
