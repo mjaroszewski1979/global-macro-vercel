@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Success {% endblock %}
+	{% block content %}
+
+                {% if messages %}
+                {% for message in messages %}
+                <div class="content">
+                    <div class="inner">
+                        <blockquote>{{ message }}</blockquote>
+                        <a href="{% url 'index' %}" class="button small">Go Back</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+	{% endblock %}

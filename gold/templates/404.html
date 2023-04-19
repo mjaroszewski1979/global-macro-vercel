@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Page not found {% endblock %}
+	{% block content %}
+
+                <div class="content">
+                    <div class="inner">
+                        <blockquote>Sorry, we can’t find the website you were looking for.</blockquote>
+                        <a href="{% url 'index' %}" class="button small">Go Back</a>
+                    </div>
+                </div>
+
+
+	{% endblock %}
