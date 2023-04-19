@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Delete Strategy {% endblock %}
+
+    {% block content %}							
+							
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>Delete Strategy</h1>
+						</header>
+
+						<span class="image main"><img src="{% static 'images/strat.png' %}" alt="" /></span>
+
+                        <h2>Do you want to delete the '{{ object.title }}' strategy?</h2>
+
+                        <form method="post" action=".">{% csrf_token %}
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Delete" class="primary" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+					</section>
+
+	{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Internal server error {% endblock %}
+
+    {% block content %}							
+							
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>INTERNAL SERVER ERROR</h1>
+						</header>
+						<span class="image main"><img src="{% static 'images/server.png' %}" alt="" /></span>
+                        <hr class="major" />
+						<p>An error has occured and we're working to fix the problem. We will be up and running shortly.</p>
+					</section>
+
+	{% endblock %}

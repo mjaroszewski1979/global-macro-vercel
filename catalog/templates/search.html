@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Search {% endblock %}
+
+    {% block content %}							
+							
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>SEARCH RESULTS</h1>
+						</header>
+
+						<span class="image main"><img src="{% static 'images/search.png' %}" alt="" /></span>
+
+						<h3>SEARCH TERM: {{ query|upper }}</h3>
+                        <hr class="major" />
+
+                        {% if strategy %}
+						<a href="{% url 'strategy_detail' strategy.slug %}"><h2>{{ strategy.title|upper }}</h2></a>
+						<p><a href="{% url 'cagr' %}">CAGR:</a> {{ strategy.cagr }} | <a href="{% url 'sharpe' %}">SHARPE:</a> {{ strategy.sharpe }} | <a href="{% url 'long' %}">LONG ONLY:</a> {{ strategy.long_only|yesno }}</p>
+                        <p>{{ strategy.description }}</p>
+						
+						<ul class="actions">
+							{% if request.user.is_authenticated %}
+							<li><a href="{% url 'strategies_update' strategy.slug %}" class="button small">Update Strategy</a></li>
+							<li><a href="{% url 'strategies_delete' strategy.slug %}" class="button small">Delete Strategy</a></li>
+							{% endif%}
+						</ul>
+
+                        {% elif market %}
+						<h2>MARKET - {{ market.title|upper }}</h2>
+                        <hr class="major" />
+                        <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ipsum corrupti modi doloremque nihil sapiente saepe porro 
+                            soluta tempora facere natus, obcaecati cupiditate architecto. Aperiam rerum fugit aliquam modi ipsam, beatae autem fugiat dignissimos 
+                            natus cupiditate? Eligendi corrupti id quae sit nam voluptatum suscipit cum asperiores odit sint, sequi ipsam, repudiandae doloribus 
+                            debitis aut a atque mollitia, iste officiis nemo? Quo, distinctio tenetur! Praesentium iusto, quas molestias est mollitia quos tenetur 
+                            modi aut aperiam perspiciatis vel? Amet numquam sunt in veritatis quam. Vero ratione, ea vel excepturi repellendus expedita eius deserunt 
+                            enim neque porro et aliquid quos? Ratione, asperiores impedit.</blockquote>
+
+                        {% else %}
+                        <h2>NO RESULTS MATCH YOUR SEARCH CRITERIA</h2>
+                        {% endif %}
+
+						
+					</section>
+
+	{% endblock %}

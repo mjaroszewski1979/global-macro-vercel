@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ strategy.title|title }} {% endblock %}
+
+    {% block content %}
+                <!-- Content -->
+                    <section>
+                        
+                        <header class="main">
+                            <h1>DETAILED INFORMATION ABOUT {{ strategy.title|upper }}</h1>
+                        </header>
+                        
+
+                        <span class="image main"><img src="{% static 'images/pic11.png' %}" alt="" /></span>
+                        <h4>FINANCIAL MARKET{{ markets|pluralize }}:</h4>
+                        {% for obj in markets %}
+                        <a href="{% url 'market_detail' obj.slug %}">{{ obj|upper }} </a>
+                        {% endfor %}
+                        <hr class="major" />
+                        <p><a href="{% url 'cagr' %}">CAGR:</a> {{ strategy.cagr }} | <a href="{% url 'sharpe' %}">SHARPE:</a> {{ strategy.sharpe }} | <a href="{% url 'long' %}">LONG ONLY:</a> {{ strategy.long_only|yesno }}</p>
+                        <p>{{ strategy.description }}</p>
+                        <hr class="major" />
+  
+
+                        
+            
+                    </section>
+
+    {% endblock %}

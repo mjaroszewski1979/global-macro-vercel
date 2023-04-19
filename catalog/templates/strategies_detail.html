@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ slug|title }} {% endblock %}
+
+    {% block content %}
+                <!-- Content -->
+                    <section>
+                        
+                        <header class="main">
+                            <h1>TRADING STRATEGIES FOR {{ slug }}</h1>
+                        </header>
+                        
+
+                        <span class="image main"><img src="{% static 'images/dominos.png' %}" alt="" /></span>
+
+                        {% for strat in strats %}
+                        <h2>{{ strat.title|upper }}</h2>
+                        <p><a href="{% url 'cagr' %}">CAGR:</a> {{ strat.cagr }} | <a href="{% url 'sharpe' %}">SHARPE:</a> {{ strat.sharpe }} | <a href="{% url 'long' %}">LONG ONLY:</a> {{ strat.long_only|yesno }}</p>
+                        <p>{{ strat.description }}</p>
+                        <hr class="major" />
+                        {% endfor %}
+
+                        
+            
+                    </section>
+
+    {% endblock %}
+
+						

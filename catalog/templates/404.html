@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Page not found {% endblock %}
+
+    {% block content %}							
+							
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>PAGE NOT FOUND</h1>
+						</header>
+						<span class="image main"><img src="{% static 'images/page.png' %}" alt="" /></span>
+                        <hr class="major" />
+						<p>Sorry, we can’t find the website you were looking for.</p>
+					</section>
+
+	{% endblock %}

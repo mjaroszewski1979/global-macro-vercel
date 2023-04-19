@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Create Strategy {% endblock %}
+
+    {% block content %}							
+							
+					<!-- Content -->
+					<section>
+						<header class="main">
+							<h1>CREATE STRATEGY</h1>
+						</header>
+
+						<span class="image main"><img src="{% static 'images/create.png' %}" alt="" /></span>
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="row">
+                                <div class="col-4 col-12-medium-{{ message.tags }}">
+                                    <h2>{{ strategy }} {{ message|safe }}</h2>
+                                </div>
+                            </div>
+                            {% endfor %}
+                         {% endif %}
+                         <div class="row">
+                             <div class="col-6 col-12-medium">
+                                <form method="post" action=".">{% csrf_token %}
+                                    {{ form.as_p }}
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Create Strategy" class="primary" /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                             </div>
+                         </div>
+					</section>
+
+	{% endblock %}
