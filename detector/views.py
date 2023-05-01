@@ -15,9 +15,12 @@ def ai_detector(request):
     # Use a separate function to get the score from the result
     score = get_score(result)
     # Create a dictionary with the score to pass to the template
-    context = {'score' : score}
-    # Render the result.html template with the score context
-    return render(request, 'result.html', context)
+    if score == 'error':
+        return render(request, 'error.html')
+    else:
+        context = {'score' : score}
+        # Render the result.html template with the score context
+        return render(request, 'result.html', context)
 
 
 
