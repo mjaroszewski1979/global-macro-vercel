@@ -9,3 +9,9 @@ The application has been developed using the Python programming language and the
 The Roberta AI content detector provided by Huggingface is a highly advanced tool that uses sophisticated machine learning algorithms to analyze text and determine the probability that it was created using AI. This tool is highly accurate and can provide valuable insights to users, allowing them to determine the authenticity of their content.
 
 Overall, this application is an excellent tool for anyone looking to verify the authenticity of their content. With its powerful AI content detector and user-friendly interface, this application provides users with valuable insights into the origin of their content. So why wait? Give it a try today and see the power of Huggingface in action!
+
+![caption](https://github.com/mjaroszewski1979/global-macro-vercel/blob/main/ai_detector_mockup.png) 
+
+  Live | Code | Technologies
+  ---- | ---- | ------------
+  [<img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/vercel.png">](https://global-macro-vercel.vercel.app/) | [<img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/github_g.png">](https://github.com/mjaroszewski1979/global-macro-vercel) | <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/python_g.png"> &nbsp; <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/django_g.png"> &nbsp; <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/html_g.png"> <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/css_g.png"> &nbsp; <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/bulma_g.png"> &nbsp; <img src="https://github.com/mjaroszewski1979/mjaroszewski1979/blob/main/huggingface_logo.png">
