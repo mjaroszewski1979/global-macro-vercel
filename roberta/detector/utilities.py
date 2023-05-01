@@ -1,10 +1,11 @@
 import requests
 import time
+import os
 
 # This function queries an API to get a result based on the input data
 def get_result(data):
     # Set API token and URL
-    API_TOKEN = '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'
+    API_TOKEN = os.environ.get('API_KEY')
     API_URL = "https://api-inference.huggingface.co/models/roberta-large-openai-detector"
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
