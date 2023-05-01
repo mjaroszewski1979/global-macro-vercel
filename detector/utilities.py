@@ -25,8 +25,7 @@ def get_result(data):
 def get_score(result):
     # Iterate through the first element in the result list
     if type(result) == dict:
-        time.sleep(20)
-
+        return 'Error'
     else:
         for element in result[0]:
             # Check if the label is 'LABEL_0'
