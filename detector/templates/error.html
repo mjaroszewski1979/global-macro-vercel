@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} API Error {% endblock %}
+	{% block content %}
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-three-fifths">
+    
+
+            <article class="message is-danger">
+                <div class="message-header">
+                <p>API Connection Error</p>
+                </div>
+                <div class="message-body">
+                    There was an error processing your request. The Roberta AI content detector provided by Huggingface is currently loading. Please come back in 30 seconds.
+                    <a href="{% url 'index' %}">Back to AI Detector>>></a>
+                </div>
+            </article>
+    
+            </div>
+  
+        </div>
+    </div>
+
+
+    {% endblock %}
