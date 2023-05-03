@@ -11,4 +11,4 @@ ENV/
 env.bak/ 
 venv.bak/ 
 
-settings/env_vars.py
+env_vars.py
