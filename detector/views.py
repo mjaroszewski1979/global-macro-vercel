@@ -21,6 +21,12 @@ def ai_detector(request):
         context = {'score' : score}
         # Render the result.html template with the score context
         return render(request, 'result.html', context)
+    
+def page_not_found(response, exception):
+    return render(response, '404.html')
+
+def server_error(response):
+    return render(response, '500.html')
 
 
 

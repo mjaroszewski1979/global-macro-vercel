@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Page not found{% endblock %}
+
+	{% block content %}
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-three-fifths">
+    
+            <article class="message is-info">
+                <div class="message-header">
+                <p>Page not found.</p>
+                </div>
+                <div class="message-body">
+                    Sorry, we can’t find the website you were looking for.
+                    <a href="{% url 'index' %}">Back to AI Detector>>></a>
+                </div>
+            </article>
+            
+            </div>
+            <div class="column"></div>    
+        </div>
+    </div>
+
+
+    {% endblock %}

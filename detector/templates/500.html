@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Internal server error {% endblock %}
+
+	{% block content %}
+    <br>
+    <br>
+    
+    <div class="container">
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column is-three-fifths">
+    
+            <article class="message is-info">
+                <div class="message-header">
+                <p>Internal server error.</p>
+                </div>
+                <div class="message-body">
+                    An error has occured and we're working to fix the problem. We will be up and running shortly.
+                    <a href="{% url 'index' %}">Back to AI Detector>>></a>
+                </div>
+            </article>
+            
+            </div>
+            <div class="column"></div>    
+        </div>
+    </div>
+
+
+    {% endblock %}
