@@ -23,9 +23,24 @@ def ai_detector(request):
         return render(request, 'result.html', context)
     
 def page_not_found(response, exception):
+    """
+    This function is called whenever a page is not found (404 error) in the web application. It takes two arguments:
+    - response: The HTTP response object.
+    - exception: The exception that caused the 404 error.
+
+    The function renders the '404.html' template and returns the response with the rendered template. This template is 
+    typically a custom error page that is displayed to the user when a page is not found.
+    """
     return render(response, '404.html')
 
 def server_error(response):
+    """
+    This function is called whenever there is a server error (500 error) in the web application. It takes one argument:
+    - response: The HTTP response object.
+
+    The function renders the '500.html' template and returns the response with the rendered template. This template is 
+    typically a custom error page that is displayed to the user when there is a server error. 
+    """
     return render(response, '500.html')
 
 
