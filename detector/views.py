@@ -1,13 +1,28 @@
+# Django imports
 from django.shortcuts import render
+
+# App imports
 from .utilities import get_result, get_score
 
-# This function handles requests to the index page
+
 def index(request):
+    '''
+    This function handles requests to the index page
+    :type name: HttpRequest object
+    :param request: contains metadata about the request
+
+    '''
     # Render the index.html template
     return render(request, 'index.html')
 
-# This function handles requests to the AI detector page
+
 def ai_detector(request):
+    '''
+    This function handles requests to the AI detector page
+    :type name: HttpRequest object
+    :param request: contains metadata about the request
+
+    '''
     # Get the content from the POST request
     content = request.POST.get('content')
     # Use a separate function to get the result from the content
@@ -30,7 +45,9 @@ def page_not_found(response, exception):
 
     The function renders the '404.html' template and returns the response with the rendered template. This template is 
     typically a custom error page that is displayed to the user when a page is not found.
+
     """
+    # Render the 404.html template
     return render(response, '404.html')
 
 def server_error(response):
@@ -40,7 +57,9 @@ def server_error(response):
 
     The function renders the '500.html' template and returns the response with the rendered template. This template is 
     typically a custom error page that is displayed to the user when there is a server error. 
+
     """
+    # Render the 500.html template
     return render(response, '500.html')
 
 
