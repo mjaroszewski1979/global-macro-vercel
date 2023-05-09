@@ -2,12 +2,12 @@
 from django.shortcuts import render
 
 # App imports
-from .utilities import get_result, get_score
+from .utilities_v1 import Detector
 
 
 def index(request):
     '''
-    This function handles requests to the index page
+    This function handles requests to the index page.
     :type name: HttpRequest object
     :param request: contains metadata about the request
 
@@ -18,7 +18,7 @@ def index(request):
 
 def ai_detector(request):
     '''
-    This function handles requests to the AI detector page
+    This function handles requests to the AI detector page.
     :type name: HttpRequest object
     :param request: contains metadata about the request
 
@@ -26,11 +26,12 @@ def ai_detector(request):
     # Get the content from the POST request
     content = request.POST.get('content')
     # Use a separate function to get the result from the content
-    result = get_result(content)
+    detector = Detector()
+    data = detector.get_result(content)
     # Use a separate function to get the score from the result
-    score = get_score(result)
+    score = detector.get_score(result=data)
     # Create a dictionary with the score to pass to the template
-    if score == 'error':
+    if score == 'Error':
         return render(request, 'error.html')
     else:
         context = {'score' : score}

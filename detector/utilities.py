@@ -11,7 +11,7 @@ def get_result(data):
 
     '''
     # Set API token and URL
-    API_TOKEN = os.environ.get('API_KEY')
+    API_TOKEN = "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"
     API_URL = "https://api-inference.huggingface.co/models/roberta-large-openai-detector"
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
@@ -47,9 +47,7 @@ def get_score(result):
 
     '''
     # Check if the result object is type of dictionary
-    if type(result) == dict:
-        return 'Error'
-    else:
+    if len(result[0]) == 2:
         # Iterate through the first element in the result list
         for element in result[0]:
             # Check if the label is 'LABEL_0'
@@ -61,3 +59,5 @@ def get_score(result):
                 # Otherwise, return True
                 else:
                     return True
+    else:
+        return 'Error'
