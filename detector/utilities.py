@@ -1,5 +1,5 @@
 import requests
-import time
+import logging
 import os
 
 
@@ -11,23 +11,26 @@ def get_result(data):
 
     '''
     # Set API token and URL
-    API_TOKEN = "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"
+    API_TOKEN = os.environ.get('API_KEY')
     API_URL = "https://api-inference.huggingface.co/models/roberta-large-openai-detector"
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
     # Define a nested function to make a POST request with the API URL and headers
     def query(payload):
+
+        logging.basicConfig(filename='errors.log', format='%(asctime)s %(message)s', level=logging.WARNING)
+        
         try:
             response = requests.post(API_URL, headers=headers, json=payload)
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            print(e)
+            logging.warning(e)
         except requests.exceptions.Timeout as e:
-            print(e)
+            logging.warning(e)
         except requests.exceptions.TooManyRedirects as e:
-            print(e)
+            logging.warning(e)
         except requests.exceptions.RequestException as e:
-            print(e)
+            logging.warning(e)
         else:
             return response.json()
 
@@ -47,7 +50,7 @@ def get_score(result):
 
     '''
     # Check if the result object is type of dictionary
-    if len(result[0]) == 2:
+    if type(result) == list:
         # Iterate through the first element in the result list
         for element in result[0]:
             # Check if the label is 'LABEL_0'

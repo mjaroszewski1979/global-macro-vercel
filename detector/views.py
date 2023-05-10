@@ -2,7 +2,7 @@
 from django.shortcuts import render
 
 # App imports
-from .utilities_v1 import Detector
+from .utilities import get_result, get_score
 
 
 def index(request):
@@ -26,10 +26,9 @@ def ai_detector(request):
     # Get the content from the POST request
     content = request.POST.get('content')
     # Use a separate function to get the result from the content
-    detector = Detector()
-    data = detector.get_result(content)
+    data = get_result(content)
     # Use a separate function to get the score from the result
-    score = detector.get_score(result=data)
+    score = get_score(data)
     # Create a dictionary with the score to pass to the template
     if score == 'Error':
         return render(request, 'error.html')
