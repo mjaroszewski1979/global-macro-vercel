@@ -17,21 +17,35 @@ def get_result(data):
 
     # Define a nested function to make a POST request with the API URL and headers
     def query(payload):
-
+        """
+        Sends a query payload to the API and returns the response in JSON format.
+        Args:
+            payload (dict): The query payload to be sent to the API.  
+        Returns:
+            dict: The response from the API in JSON format.
+        """
+        # Configure logging settings
         logging.basicConfig(filename='errors.log', format='%(asctime)s %(message)s', level=logging.WARNING)
         
         try:
+            # Send the request to the API
             response = requests.post(API_URL, headers=headers, json=payload)
+            # Check for any HTTP errors in the response
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
+            # Log HTTP errors as warnings
             logging.warning(e)
         except requests.exceptions.Timeout as e:
+            # Log Timeout errors as warnings
             logging.warning(e)
         except requests.exceptions.TooManyRedirects as e:
+            # Log TooManyRedirects errors as warnings
             logging.warning(e)
         except requests.exceptions.RequestException as e:
+            # Log any other RequestException errors as warnings
             logging.warning(e)
         else:
+            # Return the response in JSON format
             return response.json()
 
     # Send the input data as a payload to the API and return the result
