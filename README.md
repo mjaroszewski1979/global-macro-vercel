@@ -54,6 +54,7 @@
 * Django: Web framework for building the application.
 * Huggingface API: Enables users to execute hosted models for different tasks.
 * RoBERTa: Interpreting, analyzing, and generating human-like text.
+* Bulma: Simplifies frontend development by providing a set of pre-designed, responsive, and customizable UI elements.
 
 ### Contributing
 * Fork the repository.
