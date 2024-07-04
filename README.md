@@ -1,14 +1,69 @@
-# AI Detector
+## AI Detector
 
-## Welcome to the README file for this Python application built with the Django framework. The main objective of this project is to connect with Huggingface API, which is a powerful natural language processing (NLP) tool, and use its Roberta AI content detector to inform the user about the probability of the submitted content being created using AI tools.
+### This is a Python-based web application developed using the Django framework. This project leverages the Huggingface API to provide users with a tool to detect AI-generated content using the Roberta AI content detector.
 
-#### At its core, this application takes user input in the form of text and uses Huggingface's robust API to analyze the content and provide valuable insights. The Huggingface API is widely used by data scientists and machine learning engineers to develop cutting-edge NLP applications, and this project leverages this powerful tool to provide users with a convenient way to check whether their content was created using AI.
+#### In an era where AI-generated content is becoming increasingly common, distinguishing between human-written and AI-generated text is crucial. This application addresses the need for a reliable tool to identify the authenticity of text content.
 
-The application has been developed using the Python programming language and the Django web framework. Python is a highly popular programming language known for its simplicity and versatility, while Django is a powerful and scalable web framework that allows developers to rapidly build web applications. By combining these two technologies, we have created a robust and efficient web application that provides valuable insights to users.
+### How It Works
+* User Input: Users submit text content via the web interface.
+* API Integration: The application connects to the Huggingface API.
+* Content Analysis: Utilizes the Roberta AI model to analyze the text.
+* Result: Provides a probability score indicating the likelihood of the content being AI-generated.
 
-The Roberta AI content detector provided by Huggingface is a highly advanced tool that uses sophisticated machine learning algorithms to analyze text and determine the probability that it was created using AI. This tool is highly accurate and can provide valuable insights to users, allowing them to determine the authenticity of their content.
+### Features
 
-Overall, this application is an excellent tool for anyone looking to verify the authenticity of their content. With its powerful AI content detector and user-friendly interface, this application provides users with valuable insights into the origin of their content. So why wait? Give it a try today and see the power of Huggingface in action!
+* Easy-to-Use Interface: Simple and intuitive web interface for content submission.
+* Accurate Detection: Utilizes advanced machine learning algorithms from Huggingface's Roberta AI.
+* Python & Django: Built with Python for simplicity and Django for scalability.
+
+### Installation
+
+1. Clone the repository:
+  ```bash
+  git clone https://github.com/mjaroszewski1979/global-macro-vercel.git
+  cd golden-cross-v1
+  ```
+2. Create a virtual environment:
+  ```bash
+  python3 -m venv env
+  source env/bin/activate
+  ```
+3. Install dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
+4. Apply migrations and start the server:
+  ```bash
+  python manage.py migrate
+  python manage.py runserver
+  ```
+
+### Usage
+* Access the web application via the local server.
+* Enter the text you want to analyze.
+* Submit the text to get the AI content probability score.
+
+### Testing
+
+1. Run unit tests:
+   ```bash
+   python manage.py test
+   ```
+
+### Technologies Used
+* Django: Web framework for building the application.
+* Huggingface API: Enables users to execute hosted models for different tasks.
+* RoBERTa: Interpreting, analyzing, and generating human-like text.
+
+### Contributing
+* Fork the repository.
+* Create a new branch (git checkout -b feature-branch).
+* Make your changes and commit them (git commit -m 'Add new feature').
+* Push to the branch (git push origin feature-branch).
+* Open a pull request.
+
+### Contact
+For questions or feedback, please contact [mjaroszewski1979.](https://github.com/mjaroszewski1979)
 
 ![caption](https://github.com/mjaroszewski1979/global-macro-vercel/blob/main/ai_detector_mockup.png) 
 
