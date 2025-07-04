@@ -10,7 +10,7 @@ def get_result(data):
     :param data: contains data in form of text provided by the user
 
     '''
-    # Set API HF Token and URL
+    # Set API HF TOKEN and URL
     API_TOKEN = os.environ.get('HF_TOKEN')
     API_URL = "https://router.huggingface.co/hf-inference/models/openai-community/roberta-large-openai-detector"
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
