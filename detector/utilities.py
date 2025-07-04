@@ -11,8 +11,8 @@ def get_result(data):
 
     '''
     # Set API token and URL
-    API_TOKEN = os.environ.get('API_KEY')
-    API_URL = "https://api-inference.huggingface.co/models/roberta-large-openai-detector"
+    API_TOKEN = os.environ.get('HF_TOKEN')
+    API_URL = "https://router.huggingface.co/hf-inference/models/openai-community/roberta-large-openai-detector"
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
 
     # Define a nested function to make a POST request with the API URL and headers
@@ -29,7 +29,7 @@ def get_result(data):
         
         try:
             # Send the request to the API
-            response = requests.post(API_URL, headers=headers, json=payload)
+            response = requests.post(API_URL, headers=headers, json=payload, timeout=10)
             # Check for any HTTP errors in the response
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
