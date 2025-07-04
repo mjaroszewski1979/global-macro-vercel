@@ -1,14 +1,18 @@
-# Print a message indicating the build process is starting
-echo " BUILD START"
+#!/bin/bash
 
-# Install the required Python packages specified in the requirements.txt file using pip
-# The -m option runs the pip module as a script using Python 3.9
+echo "BUILD START"
+
+# Zainstaluj zależności
 python3.9 -m pip install -r requirements.txt
 
-# Collect all the static files in the Django project
-# The --noinput option runs the command without prompting for user input
-# The --clear option deletes the existing static files before collecting the new ones
-python3.9 manage.py collectstatic --noinput --clear
+# Zbierz statyczne pliki do katalogu 'static'
+python3.9 manage.py collectstatic --noinput
 
-# Print a message indicating the build process has ended
-echo " BUILD END" 
+# Utwórz katalog wynikowy dla Vercel
+mkdir -p staticfiles_build
+
+# Skopiuj zawartość katalogu static do katalogu wynikowego
+cp -r static/* staticfiles_build/
+
+echo "BUILD END"
+
