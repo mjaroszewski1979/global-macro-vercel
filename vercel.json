@@ -1,54 +1,30 @@
 {
-    // Specify the version of the Vercel configuration schema being used
-    "version": 2,
-
-    // Define the builds that need to be performed
-    "builds": [
-      {
-        // Path to the WSGI application for the Django project
-        "src": "roberta/wsgi.py",
-
-        // Specify the Vercel Python build environment
-        "use": "@vercel/python",
-
-        // Configuration options for the Python build
-        "config": { 
-            // Maximum size for the lambda function
-            "maxLambdaSize": "50mb", 
-
-            // Python runtime version to be used
-            "runtime": "python3.9" 
-        }
-      },
-      {
-        // Path to the shell script for building static files
-        "src": "build_files.sh",
-
-        // Specify the Vercel static build environment
-        "use": "@vercel/static-build",
-
-        // Configuration options for the static build
-        "config": {
-
-        // Directory where the static files will be output
+  "version": 2,
+  "builds": [
+    {
+      "src": "roberta/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
         "distDir": "staticfiles_build"
       }
-      }
-    ],
-
-    // Define the routing rules for the application
-    "routes": [
-      {
-        // Route for serving static files
-        // Match any request to /static/* and serve the corresponding file
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        // Route for serving the Django application
-        // Match any request and pass it to the WSGI application
-        "src": "/(.*)",
-        "dest": "roberta/wsgi.py"
-      }
-    ]
-  }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "roberta/wsgi.py"
+    }
+  ]
+}
